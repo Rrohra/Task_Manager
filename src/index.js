@@ -1,14 +1,15 @@
 //this is the starting point of TASK MANAGER APPLICATION
 
-const express =require('express')
+/*const express =require('express')
 require('./db/mongoose')                                        //this ensures the mongoose runs and is connected to database 
 const User = require('./models/user')                           //loading the user model in User variable
 const Task = require('./models/task')
 const userRouter =require('./routers/user_router')
 const taskRouter = require('./routers/task_router')
-const jwt =require('jsonwebtoken')
+const jwt =require('jsonwebtoken')*/
 
-const app = express()      //new application
+const app = require('./app.test(index_duplicate_for_testing)')     //basically we are importing the code from that testing ka index ffile to reduce the code dduplication
+//const app = express()      //new application
 const port = process.env.PORT  // process.env.PORT is an environment vaiable and is automatically supplied by heroku when hosted
 
 
@@ -26,7 +27,7 @@ app.use((req, res, next)=>{                             //req and res are common
 
 
 //A two step process to automatically parse the incoming json so that we can use it as an object and create resource
-app.use(express.json())              //customise our server. it will automatically parse all the incoming data to an object
+//app.use(express.json())              //customise our server. it will automatically parse all the incoming data to an object
 
 
 /*/create a new router (part of refactoring the code)
@@ -39,8 +40,8 @@ router.get('/test', (req, res)=>{
 app.use(router)                          //we register the router with our App*/
 
 
-app.use(userRouter)                      //register the user router with App
-app.use(taskRouter)
+//app.use(userRouter)                      //register the user router with App
+//app.use(taskRouter)
 
 
 //---------------------------------TASK USE RRELATION-----------------------------

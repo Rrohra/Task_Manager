@@ -296,7 +296,7 @@ const config_multer = multer({
 router.post('/users/me/upload_profile_picture',auth,config_multer.single('picture'), async (req, res)=>{        //we have eparate request for uploading the picture as we are not sending Json data we are sending BODY - > form -data
                                                                                                         //we have to register config_multer.single as the middleware
                                                                                                          //yahanpe single mein jo value stored hai 
-                                                                                                         //wahich value as a key store karni hai in body -> form-data
+                                                                                                         //wahich value as a key store karni hai in body -> form-data ,basically woh apna 'avatar' hai, mead ke terms mein
 
     //req.user.avatar = req.file.buffer                                                               //tells express to store the buffer of file in multer object into the avatar of user in user model(req.user auth se aaya hai)
     const sharp_applied = await sharp(req.file.buffer).resize({width: 250 ,height: 250}).png().toBuffer()    //modifies the image uploaded by the user/client/postman
